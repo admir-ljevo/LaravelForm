@@ -1,0 +1,45 @@
+/* public/css/form-wizard-result.css */
+
+.result-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.result-details-container {
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.result-details {
+    margin-top: 20px;
+}
+
+.personal-info p,
+.marital-info p {
+    margin-bottom: 10px;
+}
+
+.personal-info h2,
+.marital-info h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.previous-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.previous-btn:hover {
+    background-color: #45a049;
+}
