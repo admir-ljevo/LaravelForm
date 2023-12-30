@@ -85,6 +85,8 @@
                     name="married" 
                     value="yes" 
                     wire:click="updateMarried('yes')"
+                    @if($formData['married'] === 'yes') checked @endif
+
                 > Yes
             </label>
             <label>
@@ -131,13 +133,12 @@
             @error('formData.marriage_month') <span class="error">{{ $message }}</span> @enderror
             @error('formData.marriage_day') <span class="error">{{ $message }}</span> @enderror
             @error('formData.marriage_year') <span class="error">{{ $message }}</span> @enderror
-            <p>Day: {{$formData['marriage_day']}}</p>
-            <p>Month: {{$formData['marriage_month']}}</p><p>year: {{$formData['marriage_year']}}</p>
+          
         </div>
       
         <div class="form-group">
             <label>Country of Marriage</label>
-            <select wire:model="formData.marriage_country">
+            <select wire:model="formData.marriage_country"  wire:change="updateMarried('yes')">
                 <option value="">Select Country</option>
                 @foreach ($countries as $country)
                     <option value="{{ $country }}">{{ $country }}</option>
@@ -176,7 +177,9 @@
             @error('formData.previous_marriage') <span class="error">{{ $message }}</span> @enderror
         </div>
     @endif
-<p>{{$formData['married']}}</p>
+    @if($this->isSubmitButtonDisabled())
+    <div class="error">*All fields are required.</div>
+ @endif
     <button wire:click="previous" type="button">Previous</button>
     <button type="submit" @if($this->isSubmitButtonDisabled()) disabled @endif>Submit</button>
 

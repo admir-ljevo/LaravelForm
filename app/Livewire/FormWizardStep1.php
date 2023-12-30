@@ -16,7 +16,7 @@ class FormWizardStep1 extends Component
         $this->step = $newStep;
     }
 
-    public $countries = ['Country1', 'Country2', 'Country3']; // Replace with your country list
+    public $countries = ['Bosnia and Herzegovina', 'USA', 'Canada', 'Kazakhstan']; 
     public $formData = [
         'first_name' => '',
         'last_name' => '',
@@ -27,15 +27,14 @@ class FormWizardStep1 extends Component
         'dob_day' => '',
         'dob_year' => '',
         'date_of_birth' =>'',
-        'married' => 'no', // Initialize the "married" key
-        'marriage_month' => '', // Initialize the "marriage_month" key
-        'marriage_day' => '', // Initialize the "marriage_day" key
-        'marriage_year' => '', // Initialize the "marriage_year" key
-        'marriage_country' => '', // Initialize the "marriage_country" key
-        'widowed' => '', // Initialize the "widowed" key
+        'married' => 'no', 
+        'marriage_month' => '', 
+        'marriage_day' => '', 
+        'marriage_year' => '',
+        'marriage_country' => '', 
+        'widowed' => '', 
         'previous_marriage' => '',
-        'date_of_marriage'=> '' // Initialize the "previous_marriage" key
-        // Add other form data keys as needed
+        'date_of_marriage'=> '' 
     ];
     public $months = [
         '01' => 'January',
@@ -65,11 +64,6 @@ class FormWizardStep1 extends Component
         $this->years = range(date('Y'), 1900);
         $this->formData['married'] = 'no';
 
-        if ($this->formData['married'] === 'yes') {
-            $this->formData['marriage_year'] = 2023; 
-            $this->formData['marriage_day'] = 1; 
-            $this->formData['marriage_month'] = '01'; 
-        }
 
     }
 
@@ -116,6 +110,21 @@ class FormWizardStep1 extends Component
     public function updateMarried($value)
     {
         $this->formData['married'] = $value;
+        if($value=='yes'){
+            $this->formData['widowed']='';
+            $this->formData['previous_marriage']='';
+
+        }
+
+        if($value=='no'){
+            $this->formData['marriage_day']='';
+            $this->formData['marriage_year']='';
+            $this->formData['marriage_month']='';
+            $this->formData['marriage_country']='';
+
+            
+
+        }
         
     }
     public function render()
